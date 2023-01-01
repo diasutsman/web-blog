@@ -19,6 +19,7 @@ class UserController extends Controller
     return view('posts', [
       'title' => "Post By Author : " . $author->name,
       'posts' => $author->posts,
+      'active' => 'posts',
     ]);
   }
 }

@@ -37,10 +37,6 @@ Route::get('/about', function () {
 });
 
 Route::get('/posts', [PostController::class, 'index']);
-Route::get('posts/{post:slug}', [PostController::class, 'show']);
+Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
-Route::get('categories', [CategoryController::class, 'index']);
-
-Route::get('categories/{category:slug}', [CategoryController::class, 'show']);
-
-Route::get('/authors/{author:username}', [UserController::class, 'show']);
+Route::get('/categories', [CategoryController::class, 'index']);

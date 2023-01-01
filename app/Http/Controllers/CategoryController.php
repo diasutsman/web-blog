@@ -17,6 +17,7 @@ class CategoryController extends Controller
     return view('categories', [
       'title' => 'Post Categories',
       'categories' => Category::all(),
+      "active" => 'categories'
     ]);
   }
 
@@ -30,7 +31,8 @@ class CategoryController extends Controller
   {
     return view('posts', [
       'title' => "Post by category : " . $category->name,
-      'posts' => $category->posts->load('category', 'author'),
+      'posts' => $category->posts,
+      "active" => 'categories'
     ]);
   }
 }

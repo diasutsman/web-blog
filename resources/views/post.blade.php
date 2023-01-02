@@ -16,9 +16,17 @@
                     </a>
                 </p>
 
-                <img src="https://source.unsplash.com/1200x500?
-                {{ $post->category->name }}"
-                    alt="{{ $post->category->name }}" loading="lazy" height="500" class="img-fluid">
+                @if ($post->image)
+                    <div style="max-height: 350px; overflow: hidden;">
+                        <img src="{{ asset($post->image) }}" alt="{{ $post->category->name }}" loading="lazy"
+                            class="img-fluid w-100">
+                    </div>
+                @else
+                    <img src="https://source.unsplash.com/1200x500?{{ $post->category->name }}"
+                        alt="{{ $post->category->name }}" loading="lazy" style="aspect-ratio: 12/5;" class="img-fluid">
+                @endif
+
+
 
                 <article class="my-3 fs-5">
                     {!! $post->body !!}

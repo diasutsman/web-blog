@@ -45,14 +45,14 @@
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endif
                     @endforeach
-              </select>
+                </select>
             </div>
 
             <div class="mb-3">
                 <label for="image" class="form-label">Post Image</label>
                 <input type="hidden" name="oldImage" value="{{ $post->image }}">
 
-                <img src="@if ($post->image) {{ asset($post->image) }} @else @endif"
+                <img src="storage/@if ($post->image) {{ asset('/storage/' . $post->image) }} @else @endif"
                     class="img-preview img-fluid mb-3 col-sm-5 d-block">
 
                 <input class="form-control @error('image') is-invalid @enderror" type="file" id="image"

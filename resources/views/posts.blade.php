@@ -25,8 +25,8 @@
         <div class="card mb-3">
             @if ($posts[0]->image)
                 <div style="max-height: 400px; overflow: hidden;">
-                    <img src="{{ asset($posts[0]->image) }}" alt="{{ $posts[0]->category->name }}" loading="lazy"
-                        class="card-img-top">
+                    <img src="{{ asset('/storage/' . $posts[0]->image) }}" alt="{{ $posts[0]->category->name }}"
+                        loading="lazy" class="card-img-top">
                 </div>
             @else
                 <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->category->name }}" class="card-img-top"
@@ -66,8 +66,8 @@
                             </div>
 
                             @if ($post->image)
-                                <img src="{{ asset($post->image) }}" alt="{{ $post->category->name }}" loading="lazy"
-                                    class="card-img-top">
+                                <img src="{{ asset('/storage/' . $post->image) }}" alt="{{ $post->category->name }}"
+                                    loading="lazy" class="card-img-top">
                             @else
                                 <img src="https://source.unsplash.com/500x400?{{ $post->category->name }}"
                                     class="card-img-top" alt="{{ $post->category->name }}" loading="lazy"

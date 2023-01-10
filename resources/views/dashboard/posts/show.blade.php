@@ -22,7 +22,7 @@
 
                 @if ($post->image)
                     <div style="max-height: 350px; overflow: hidden;">
-                        <img src="{{ asset($post->image) }}" alt="{{ $post->category->name }}" loading="lazy"
+                        <img src="{{ asset('/storage/' . $post->image) }}" alt="{{ $post->category->name }}" loading="lazy"
                             class="img-fluid mt-3 w-100">
                     </div>
                 @else

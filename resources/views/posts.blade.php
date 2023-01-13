@@ -59,7 +59,7 @@
             <div class="row">
                 @foreach ($posts->skip(1) as $post)
                     <div class="col-md-4 mb-3">
-                        <div class="card">
+                        <div class="card h-100">
                             <div class="position-absolute px-3 py-2" style="background-color: rgba(0, 0, 0, 0.7)">
                                 <a class="text-decoration-none text-white"
                                     href="/posts?category={{ $post->category->slug }}">{{ $post->category->name }}</a>
@@ -73,7 +73,7 @@
                                     class="card-img-top" alt="{{ $post->category->name }}" loading="lazy"
                                     style="aspect-ratio: 5/4">
                             @endif
-                            <div class="card-body">
+                            <div class="card-body d-flex flex-column align-items-start">
                                 <h5 class="card-title"><a href="/posts/{{ $post->slug }}"
                                         class="text-decoration-none">{{ $post->title }}</a></h5>
                                 <p>
@@ -84,7 +84,7 @@
                                     </small>
                                 </p>
                                 <p class="card-text">{{ $post->excerpt }}</p>
-                                <a href="/posts/{{ $post->slug }}" class="btn btn-primary">Read More</a>
+                                <a href="/posts/{{ $post->slug }}" class="btn btn-primary mt-auto">Read More</a>
                             </div>
                         </div>
                     </div>

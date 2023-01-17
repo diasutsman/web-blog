@@ -39,24 +39,13 @@ class AdminCategoryController extends Controller
   public function store(Request $request)
   {
     $validatedData = $request->validate([
-      'name' => 'required|max:255',
+      'name' => 'required|max:255|unique:categories',
     ]);
 
     $validatedData['slug'] = SlugService::createSlug(Category::class, 'slug', $validatedData['name']);
     Category::create($validatedData);
 
     return redirect('/dashboard/categories')->with('success', 'New category has been added!');
-  }
-
-  /**
-   * Display the specified resource.
-   *
-   * @param  \App\Models\Category  $category
-   * @return \Illuminate\Http\Response
-   */
-  public function show(Category $category)
-  {
-    //
   }
 
   /**
@@ -82,7 +71,7 @@ class AdminCategoryController extends Controller
   public function update(Request $request, Category $category)
   {
     $validatedData = $request->validate([
-      'name' => 'required|max:255',
+      'name' => 'required|max:255|unique:categories',
     ]);
 
     $validatedData['slug'] = SlugService::createSlug(Category::class, 'slug', $validatedData['name']);

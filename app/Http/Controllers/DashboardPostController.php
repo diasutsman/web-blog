@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 
 class DashboardPostController extends Controller
 {
+  private const HOME_URL = '/dashboard/posts';
   /**
    * Display a listing of the resource.
    *
@@ -61,7 +62,7 @@ class DashboardPostController extends Controller
 
     Post::create($validatedData);
 
-    return redirect('/dashboard/posts')->with('success', 'New post has been added!');
+    return redirect(self::HOME_URL)->with('success', 'New post has been added!');
   }
 
   /**
@@ -126,7 +127,7 @@ class DashboardPostController extends Controller
     Post::where('id', $post->id)
       ->update($validatedData);
 
-    return redirect('/dashboard/posts')->with('success', 'Post has been updated!');
+    return redirect(self::HOME_URL)->with('success', 'Post has been updated!');
   }
 
   /**
@@ -143,7 +144,7 @@ class DashboardPostController extends Controller
 
     Post::destroy($post->id);
 
-    return redirect('/dashboard/posts')->with('success', 'Post has been deleted!');
+    return redirect(self::HOME_URL)->with('success', 'Post has been deleted!');
   }
 
   public function checkSlug(Request $request)

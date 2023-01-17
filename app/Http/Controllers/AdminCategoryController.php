@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class AdminCategoryController extends Controller
 {
+  private const HOME_URL = '/dashboard/categories';
   /**
    * Display a listing of the resource.
    *
@@ -45,7 +46,7 @@ class AdminCategoryController extends Controller
     $validatedData['slug'] = SlugService::createSlug(Category::class, 'slug', $validatedData['name']);
     Category::create($validatedData);
 
-    return redirect('/dashboard/categories')->with('success', 'New category has been added!');
+    return redirect(self::HOME_URL)->with('success', 'New category has been added!');
   }
 
   /**
@@ -79,7 +80,7 @@ class AdminCategoryController extends Controller
     Category::where('id', $category->id)
       ->update($validatedData);
 
-    return redirect('/dashboard/categories')->with('success', 'Category has been updated!');
+    return redirect(self::HOME_URL)->with('success', 'Category has been updated!');
   }
 
   /**
@@ -92,6 +93,6 @@ class AdminCategoryController extends Controller
   {
     Category::destroy($category->id);
 
-    return redirect('/dashboard/categories')->with('success', 'Category has been deleted!');
+    return redirect(self::HOME_URL)->with('success', 'Category has been deleted!');
   }
 }
